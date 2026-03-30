@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+button {
+  cursor: pointer;
+}
+
+.righteous-regular {
+  font-family: "Righteous", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
