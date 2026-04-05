@@ -31,6 +31,20 @@ app.post("/register", async (req, res) => {
   res.json(result);
 });
 
+app.post("/delete", async (req, res) => {
+  const { email, user, password }: User = req.body;
+  const result = await prisma.user.delete({
+    where: {
+      email,
+      user,
+      password,
+    },
+  });
+  console.log(`eliminado exitosamente usuario "${user}"`);
+
+  res.json(result);
+});
+
 app.post("/login", async (req, res) => {
   //quiero pasarle solo user y pass
   // con findMany pude, con findUnique no
@@ -42,5 +56,7 @@ app.post("/login", async (req, res) => {
       password: password,
     },
   });
-  res.json(result);
+  console.log(`logueado exitosamente usuario "${user}"`);
+  res.status(200);
+  res.json("usuario encontrado. login exitoso");
 });
