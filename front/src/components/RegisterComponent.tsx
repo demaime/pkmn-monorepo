@@ -14,6 +14,7 @@ export default function RegisterComponent({
 
   function handleRegister() {
     const url = "http://localhost:5000";
+    console.log(url);
     axios
       .post(`${url}/register`, {
         email: emailRef.current?.value,
